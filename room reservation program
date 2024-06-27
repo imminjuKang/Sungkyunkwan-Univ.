@@ -70,6 +70,7 @@ def CheckReservation(Id, name, people, building, num, yoil, start_time, end_time
         elif lectureroom_df.loc[lectureroom_df['Room_num']== num, 'min_mem'].values > people:
             print('수용 인원 미만')
             return False
+
     if possible_num[Id] == 0:
         print('예약 횟수 초과')
         return False
@@ -143,7 +144,6 @@ def Update():
             for i in range(start_time, end_time):
                 building[yoil_num][num][i] = 0
 
-            #예약 횟수 +1
             no = possible_num[id_num]
             new_no = no+1
             possible_num[id_num] = new_no
@@ -153,4 +153,3 @@ def Update():
         print('예약 정보가 없습니다.')
         return
     update_info = Create()
-
